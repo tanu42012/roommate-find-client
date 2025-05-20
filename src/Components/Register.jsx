@@ -1,16 +1,31 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 import { auth } from '../firebase.init';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Register = () => {
+    const {createUser,setUser}=use(AuthContext);
+
     const handleRegister=e=>{
+
         e.preventDefault();
         const name=e.target.name.value;
         const email=e.target.email.value;
         const photo=e.target.photo.value;
         const password=e.target.password.value;
         console.log(name,email,photo,password);
+
+        createUser(email,password)
+        .then(result=>{
+            const user=result.user;
+            // console.log(user)
+            setUser(user);
+        })
+        .catch((error)=>{
+            const errorMessage=error.message;
+            alert(errorMessage);
+        })
 
 
         createUserWithEmailAndPassword(auth,email,password)
@@ -30,13 +45,22 @@ const Register = () => {
                 <div className="card-body">
                     <form onSubmit={handleRegister} className="fieldset">
                         <label className="label">Name</label>
-                        <input type="text" name='name' className="input" placeholder="Your Name" />
+                        <input type="text" name='name'
+                        required
+                         className="input" placeholder="Your Name" />
                         <label className="label">Email</label>
-                        <input type="email" name='email' className="input" placeholder="Email" />
+                        <input type="email"
+                        required
+                        
+                        name='email' className="input" placeholder="Email" />
                         <label className="label">Photo URL</label>
-                        <input type="text" name='photo' className="input" placeholder="Photo URL" />
+                        <input type="text" 
+                          required
+                        name='photo' className="input" placeholder="Photo URL" />
                         <label className="label">Password</label>
-                        <input type="password" name='password' className="input" placeholder="Password" />
+                        <input type="password" name='password' className="input"
+                          required
+                        placeholder="Password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Register</button>
                     </form>
