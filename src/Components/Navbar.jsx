@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import "../Navbar/Navbar.css"
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
     const{user,logOut}=use(AuthContext);
@@ -36,7 +37,7 @@ const Navbar = () => {
                             <li><a>My Listings</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Find Roommate</a>
+                    <a className="btn btn-ghost text-xl"><FaSearch />Find Roommate</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

@@ -1,11 +1,33 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { auth } from '../firebase.init';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
     const {createUser,setUser}=use(AuthContext);
+     const provider=new GoogleAuthProvider()
+        const handleGoogleSignIn=()=>{
+            console.log('google sing click')
+            signInWithPopup(auth,provider)
+            .then(result=>{
+                console.log(result.user);
+                alert("User Login successfully")
+                setUser(result.user);
+    
+    
+            })
+            .catch(error=>{
+                console.log(error);
+    
+            })
+        }
+    
+
+    
+    
 
     const handleRegister=e=>{
 
@@ -66,6 +88,8 @@ const Register = () => {
                     </form>
                     <p>Already Have an Account? Please <Link className='text-blue-600 underline' to='/auth/login'>Login</Link></p>
                 </div>
+                <NavLink to='/home' className='btn' onClick={handleGoogleSignIn} ><FcGoogle />Sign In With Google</NavLink >
+                
             </div>
         </div>
     );
