@@ -31,7 +31,7 @@ const AddFindRoom = () => {
         <div>
             <Navbar></Navbar>
             <div className='p-12 text-center space-y-4'>
-                <h2 className='text-4xl'>Add Room Details Here</h2>
+                <h2 className='text-4xl font-bold'>Add Room Details Here</h2>
             </div>
 
             <form onSubmit={handleAddDetails}>

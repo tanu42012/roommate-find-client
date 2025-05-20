@@ -5,16 +5,16 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
-    const{user,logOut}=use(AuthContext);
-    const handleLogout=()=>{
+    const { user, logOut } = use(AuthContext);
+    const handleLogout = () => {
         console.log('user try log out')
         logOut()
-        .then(()=>{
-            alert('you are logout successfully')
-        })
-        .catch((error)=>{
-            console.log(error);
-        })
+            .then(() => {
+                alert('you are logout successfully')
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     return (
@@ -31,7 +31,7 @@ const Navbar = () => {
                             <li><a>Home</a></li>
                             <li>
                                 <a>Add to Find Roommate</a>
-                                
+
                             </li>
                             <li><a>Browse Listing</a></li>
                             <li><a>My Listings</a></li>
@@ -43,7 +43,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink to='/home'>Home</NavLink></li>
                         <li>
-                        <NavLink to='/add-find-roommate'>Add to Find Roommate</NavLink>
+                            <NavLink to='/add-find-roommate'>Add to Find Roommate</NavLink>
                         </li>
                         <li><NavLink to='/browse-listing'>Browse Listing</NavLink></li>
                         <li><NavLink to='/my-listing'>My Listings</NavLink></li>
@@ -51,11 +51,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
-                    <div>{user && user.email}</div>
+                    {/* <div>{user && user.email}</div> */}
                     {
-                        user? <button onClick={handleLogout} className='btn'>Logout</button> :<NavLink to='/auth/login' className="btn">Login</NavLink>
+                        user ? <button onClick={handleLogout} className='btn'>{user.displayName
+
+
+                        }</button> : <NavLink to='/auth/login' className="btn">Login</NavLink>
                     }
-                    
+
                     <NavLink to="/auth/register" className="btn">Register</NavLink>
                 </div>
             </div>
