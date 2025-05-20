@@ -12,6 +12,7 @@ import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Hero from "./Components/Hero";
 import Error from "./Components/Error";
+import Details from "./Components/Details";
   
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
     },
     {
         path:'/details',
+        element:<Details></Details>
+    },
+    {
+        path:"/about",
         element:<Error></Error>
     },
     {
