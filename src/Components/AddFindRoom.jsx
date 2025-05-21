@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Swal from 'sweetalert2';
 
 const AddFindRoom = () => {
     const handleAddDetails = e => {
@@ -20,7 +21,16 @@ const AddFindRoom = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            if(data.insertedId){
+                
+                Swal.fire({
+                    title: "Successfully Added!",
+                    icon: "success",
+                    draggable: true
+                  });
+                  form.reset();
+            }
+            // console.log(data)
         })
 
 
@@ -51,19 +61,19 @@ const AddFindRoom = () => {
 
                         <label className="label">Rent Amount
                         </label>
-                        <input type="text" name='rent-amount' className="input  w-full" placeholder="Rent Amount" />
+                        <input type="text" name='rentAmount' className="input  w-full" placeholder="Rent Amount" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
                         <label className="label">Room Type
                         </label>
-                        <input type="text" name='room-type' className="input  w-full" placeholder="Room Type" />
+                        <input type="text" name='roomType' className="input  w-full" placeholder="Room Type" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
                         <label className="label">Lifestyle Preferences
                         </label>
-                        <input type="text" name='lifestyle-preferences' className="input  w-full" placeholder="Lifestyle Preferences" />
+                        <input type="text" name='lifestylePreferences' className="input  w-full" placeholder="Lifestyle Preferences" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
@@ -77,7 +87,7 @@ const AddFindRoom = () => {
 
                         <label className="label">Contact Info
                         </label>
-                        <input type="text" name='contact-info' className="input  w-full" placeholder="Contact Info" />
+                        <input type="text" name='contactInfo' className="input  w-full" placeholder="Contact Info" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
