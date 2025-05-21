@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase.init';
 import { FcGoogle } from "react-icons/fc";
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const[user,setUser]=useState(null);
@@ -37,7 +38,13 @@ const Login = () => {
         signIn(email,password)
         .then(result=>{
             const user=result.user;
-            alert("Login sucessfully");
+             
+                            Swal.fire({
+                                title: "Successfully Added!",
+                                icon: "success",
+                                draggable: true
+                              });
+            // alert("Login sucessfully");
             console.log(user)
             
         })

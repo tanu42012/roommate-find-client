@@ -34,7 +34,9 @@ const MyList = ({roomData}) => {
                 .then(data=>{
                     if(data.deletedCount){
                         const remaining=roomData.filter(room=>room._id!==id);
-                        setMyList(remaining);
+                        console.log(remaining);
+                     setMyList(remaining);
+                    
                         Swal.fire({
                             title: "Deleted!",
                             text: "User has been deleted.",
@@ -85,21 +87,22 @@ const MyList = ({roomData}) => {
                         {/* row 1 */}
                          
                         {
-                            roomData.map((room, index) => (
+                           myList.map((room, index) => (
                                 <tr key={room.id || index}>
                                     <td>{index + 1}</td>
                                     <td>{room.title}</td>
                                     <td>{room.location}</td>
                                     <td>{room.roomType}</td>
-                                    <td>{room.roomRent}</td>
+                                    <td>{room.rentAmount}</td>
                                     <td>{room.lifestylePreferences}</td>
-                                    <td>{room.contactNo}</td>
+                                    <td>{room.contactInfo
+                                    }</td>
                                     <td>{room.availability}</td>
                                     <td>{room.description}</td>
                                     <td className='gap-12'>
-                                        <button className="btn btn-sm "><MdEditDocument /></button>
-                                        <button className="btn btn-sm "><MdOutlineSystemUpdate /></button>
-                                        <button onClick={()=>handleDelete(room._id)} className="btn btn-sm "><MdDelete /></button>
+                                        <button className="btn btn-sm hover:bg-blue-400 "><MdEditDocument /></button>
+                                        <button className="btn btn-sm hover:bg-orange-300"><MdOutlineSystemUpdate /></button>
+                                        <button onClick={()=>handleDelete(room._id)} className="btn btn-sm hover:bg-red-600"><MdDelete /></button>
                                     </td>
                                 </tr>
                             ))

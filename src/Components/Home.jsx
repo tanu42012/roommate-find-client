@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-4'>
          {
-               roomData.map(room=><RoomData key={room._id} room={room}></RoomData>)
+               roomData.slice(0,6).map(room=><RoomData key={room._id} room={room}></RoomData>)
          }
             
         </div>
