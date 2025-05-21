@@ -43,7 +43,8 @@ const router = createBrowserRouter([
     },
     {
         path:"/my-listing",
-        element:<MyListing></MyListing>
+        element:<MyListing></MyListing>,
+        loader:()=>fetch("http://localhost:3000/add-room"),
 
     },
     {

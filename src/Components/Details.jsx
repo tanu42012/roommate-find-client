@@ -20,7 +20,7 @@ const Details = () => {
             </section>
            
            
-             <section>
+             <section className='mt-100'>
                 <Footer></Footer>
 
              </section>

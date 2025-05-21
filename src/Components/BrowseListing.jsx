@@ -18,7 +18,7 @@ const BrowseListing = () => {
                 }
             </section>
            
-            <section>
+            <section className='mt-100'>
                 <Footer></Footer>
             </section>
         </div>
