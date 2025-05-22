@@ -17,7 +17,7 @@ const RoomData = ({room}) => {
                     
                     <div className="card-actions justify-end">
                         
-                        <NavLink to='/detailsRoom/:id' className="btn btn-primary rounded-xl">See More</NavLink>
+                        <NavLink to={`/detailsRoom/${room?._id}`} className="btn btn-primary rounded-xl">See More</NavLink>
                 
                     </div>
                 </div>
