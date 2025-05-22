@@ -114,7 +114,7 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
                             <li><NavLink to='/home'>Home</NavLink></li>
                             <li><NavLink to='/add-find-roommate'>Add to Find Roommate</NavLink></li>
-                            <li><NavLink to='/details'>Details</NavLink></li>
+                            {/* <li><NavLink to='/details'>Details</NavLink></li> */}
                             <li><NavLink to='/browse-listing'>Browse Listing</NavLink></li>
                             <li><NavLink to='/my-listing'>My Listings</NavLink></li>
                             <li><NavLink to='/about'>About</NavLink></li>
