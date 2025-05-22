@@ -135,11 +135,7 @@ const Navbar = () => {
 
                 <div className="navbar-end gap-4">
                     <div className="relative group cursor-pointer">
-                        <img
-                            className="w-12 rounded-full"
-                            src={user ? user.photoURL : userIcon}
-                            alt="User Avatar"
-                        />
+                    <img  className='w-12 rounded-full hover:{user.displayName,contactInfo,availability}' src={`${user ? user.photoURL : userIcon}`} alt="" />
                         {user && (
                             <div className="absolute hidden group-hover:block bg-white text-black text-sm rounded px-2 py-1 shadow-lg top-14 left-1/2 transform -translate-x-1/2 z-50 whitespace-nowrap">
                                 {user.displayName}
