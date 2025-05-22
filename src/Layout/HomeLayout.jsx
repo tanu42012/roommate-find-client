@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 import Header from '../Components/Header';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
@@ -9,11 +9,18 @@ import Additional2 from '../Components/Additional2';
 import Lottie from "lottie-react";
 import Ai from "../assets/Ai..json"
 import ToolTip from '../Components/ToolTip';
+import { AuthContext } from '../Provider/AuthProvider';
+import Loading from '../Components/Loading';
+
 const style={
     width:"600px"
 }
 
 const HomeLayout = () => {
+    const {loading}=use(AuthContext);
+    if(loading){
+        return <Loading></Loading>
+    }
     return (
         <div>
             <header>
