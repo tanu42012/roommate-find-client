@@ -1,13 +1,15 @@
 import React, { use, useState } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase.init';
 import { FcGoogle } from "react-icons/fc";
 import Swal from 'sweetalert2';
 
+
 const Login = () => {
     const[user,setUser]=useState(null);
+    const navigate=useNavigate();
 
     const{signIn}=use(AuthContext);
     const provider=new GoogleAuthProvider()
@@ -17,6 +19,7 @@ const Login = () => {
         .then(result=>{
             console.log(result.user);
             alert("User Login successfully")
+           
             setUser(result.user);
 
 
@@ -38,13 +41,11 @@ const Login = () => {
         signIn(email,password)
         .then(result=>{
             const user=result.user;
-             
-                            Swal.fire({
-                                title: "Successfully Added!",
-                                icon: "success",
-                                draggable: true
-                              });
-            // alert("Login sucessfully");
+            
+                           
+            alert("Login sucessfully");
+            navigate(`${location.state?location.state : "/"}`)
+            
             console.log(user)
             
         })

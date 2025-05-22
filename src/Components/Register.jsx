@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { auth } from '../firebase.init';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
     const {createUser,setUser}=use(AuthContext);
+    const [error, setError]=useState(true);
      const provider=new GoogleAuthProvider()
         const handleGoogleSignIn=()=>{
             console.log('google sing click')
@@ -37,10 +38,21 @@ const Register = () => {
         const photo=e.target.photo.value;
         const password=e.target.password.value;
         console.log(name,email,photo,password);
+        const passwordExp =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        if(passwordExp.test(password)===false){
+          setError("password must have one lower case,one upper case,one degit and 8 character or longer.")
+         
+          return;
+    
+        }
+        else{
+          setError('')
+        }
 
         createUser(email,password)
         .then(result=>{
             const user=result.user;
+            alert('Register Successfully')
             // console.log(user)
             setUser(user);
         })
@@ -81,7 +93,9 @@ const Register = () => {
                         name='photo' className="input" placeholder="Photo URL" />
                         <label className="label">Password</label>
                         <input type="password" name='password' className="input"
+                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                           required
+                          title="password must have one lower case,one upper case,one degit and 8 character or longer."
                         placeholder="Password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Register</button>

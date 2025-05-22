@@ -101,7 +101,7 @@ const MyList = ({roomData}) => {
                                     <td>{room.availability}</td>
                                     <td>{room.description}</td>
                                     <td className='gap-12'>
-                                        <button className="btn btn-sm hover:bg-blue-400 "><MdEditDocument /></button>
+                                     
                                         <NavLink to={`/update/${room?._id}`} className="btn btn-sm hover:bg-orange-300"><MdOutlineSystemUpdate /></NavLink>
                                         <button onClick={()=>handleDelete(room._id)} className="btn btn-sm hover:bg-red-600 "><MdDelete /></button>
                                     </td>
