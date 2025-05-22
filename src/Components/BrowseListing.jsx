@@ -9,7 +9,7 @@ const BrowseListing = () => {
     const roomData=useLoaderData()
     console.log(roomData);
     return (
-        <div>
+        <div className='h-1000'>
             <section>
                 <Navbar></Navbar>
                 
@@ -20,7 +20,7 @@ const BrowseListing = () => {
                 }
             </section>
            
-            <section className='mt-450'>
+            <section className='mt-480'>
                 <Footer></Footer>
             </section>
         </div>

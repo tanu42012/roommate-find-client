@@ -145,7 +145,7 @@ const Navbar = () => {
 
                     {
                         user ? (
-                            <button onClick={handleLogout} className='btn'>Logout</button>
+                            <button  onClick={handleLogout} className='btn btn-primary rounded-xl'>Logout</button>
                         ) : (
                             <NavLink to='/auth/login' className="btn">Login</NavLink>
                         )
