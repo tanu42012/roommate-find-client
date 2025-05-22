@@ -49,8 +49,8 @@ const DetailsRoom = () => {
                     <h2 className="card-title">Room-Type: {roomType}</h2>
                     <h2 className="card-title">Room-Rent: {rentAmount}</h2>
                     <h2 className="card-title">Lifestyle-Preferences: {lifestylePreferences}</h2>
-                    <h2 className="card-title text-blue-600">{count > 0 && (
-                        <h2 className="card-title">Contact-No: {contactInfo}</h2>
+                    <h2 className="card-title text-blue-600">Contact-No:{count > 0 && (
+                        <h2 className="card-title">{contactInfo}</h2>
                     )}</h2>
                     <h2 className="card-title">Availability: {availability}</h2>
                     <h2 className="card-title">Description: {description}</h2>

@@ -8,6 +8,7 @@ import Additional1 from '../Components/Additional1';
 import Additional2 from '../Components/Additional2';
 import Lottie from "lottie-react";
 import Ai from "../assets/Ai..json"
+import ToolTip from '../Components/ToolTip';
 const style={
     width:"600px"
 }
@@ -26,6 +27,9 @@ const HomeLayout = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2'>
                 <Lottie style={style} animationData={Ai}></Lottie>
                 <Lottie style={style} animationData={Ai}></Lottie>
+                </div>
+                <div>
+                    <ToolTip></ToolTip>
                 </div>
                
             </section>
