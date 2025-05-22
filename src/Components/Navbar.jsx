@@ -29,13 +29,15 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Home</a></li>
-                            <li>
-                                <a>Add to Find Roommate</a>
+                             <li><NavLink to='/home'>Home</NavLink></li>
+                        <li>
+                            <NavLink to='/add-find-roommate'>Add to Find Roommate</NavLink>
 
-                            </li>
-                            <li><a>Browse Listing</a></li>
-                            <li><a>My Listings</a></li>
+                        </li>
+                        <li><NavLink to='/details'>Details</NavLink></li>
+                        <li><NavLink to='/browse-listing'>Browse Listing</NavLink></li>
+                        <li><NavLink to='/my-listing'>My Listings</NavLink></li>
+                        <li><NavLink to='/about'>About</NavLink></li>
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl"><FaSearch />Find Roommate</a>
