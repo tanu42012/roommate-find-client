@@ -3,6 +3,16 @@ import { NavLink } from 'react-router';
 
 const RoomList = ({room}) => {
     const {availability,contactInfo,description,lifestylePreferences,location,rentAmount,roomType,title,_id}=room;
+    const handleSeeMore=()=>{
+        console.log("click see")
+        fetch(`http://localhost:3000/add-room/${room?._id}`)
+        .then((res)=>res.json())
+        .then((data)=>{
+            console.log(data)
+        })
+       
+
+    }
     return (
         <div>
              <div className="card bg-gray-300 w-96 ">
@@ -23,7 +33,7 @@ const RoomList = ({room}) => {
                     
                     <div className="card-actions justify-end">
                         
-                        <NavLink to='/details' className="btn  btn-primary rounded-xl">See More</NavLink>
+                        <NavLink onClick={handleSeeMore} to={`/detailsRoom/${room?._id}`}className="btn  btn-primary rounded-xl">See More</NavLink>
                 
                     </div>
                 </div>

@@ -18,6 +18,8 @@ import PrivateRoute from "./Provider/PrivateRoute";
 import PrivateRoute2 from "./Provider/PrivateRoute2";
 import Loading from "./Components/Loading";
 
+import DetailsRoom from "./Components/DetailsRoom";
+
 
 const router = createBrowserRouter([
     {
@@ -32,7 +34,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/hero',
-                element: <Hero></Hero>
+                element: <Hero></Hero>,
+               
+
 
             }
         ]
@@ -51,7 +55,9 @@ const router = createBrowserRouter([
     },
     {
         path: "/my-listing",
-        element: <MyListing></MyListing>,
+        element: <PrivateRoute>
+            <MyListing></MyListing>
+        </PrivateRoute>,
         loader: () => fetch("http://localhost:3000/add-room"),
 
     },
@@ -84,6 +90,21 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateData></UpdateData>,
         loader: ({ params }) => fetch(`http://localhost:3000/add-room/${params.id}`)
+    },
+    // {
+    //     path:"/single",
+    //     element: <h2>hello</h2>,
+    //     // loader: () => fetch("http://localhost:3000/add-room"),
+    //     loader: ({ params }) => fetch(`http://localhost:3000/add-room/${params.id}`)
+       
+
+    // },
+    {
+        path:"/detailsRoom/:id",
+        element:<PrivateRoute>
+            <DetailsRoom></DetailsRoom>
+        </PrivateRoute>,
+        loader: () => fetch("http://localhost:3000/add-room"),
     }
 ]);
 export default router;

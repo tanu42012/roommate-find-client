@@ -44,7 +44,7 @@ const Login = () => {
             
                            
             alert("Login sucessfully");
-            navigate(`${location.state?location.state : "/"}`)
+            navigate(`${location.state?location.state : "/home"}`)
             
             console.log(user)
             
