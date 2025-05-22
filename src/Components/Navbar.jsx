@@ -1,5 +1,6 @@
 import React, { use } from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import userIcon from "../assets/user.png"
 import "../Navbar/Navbar.css"
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaSearch } from "react-icons/fa";
@@ -19,7 +20,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-gray-300 shadow-sm mt-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,10 +51,14 @@ const Navbar = () => {
                         <li><NavLink to='/browse-listing'>Browse Listing</NavLink></li>
                         <li><NavLink to='/my-listing'>My Listings</NavLink></li>
                         <li><NavLink to='/about'>About</NavLink></li>
-                      
+
                     </ul>
                 </div>
+
                 <div className="navbar-end gap-4">
+                    <Link to='/' >
+                        <img  className='w-12 rounded-full hover:{user.displayName,contactInfo,availability}' src={`${user ? user.photoURL : userIcon}`} alt="" />
+                    </Link >
                     {/* <div>{user && user.email}</div> */}
                     {
                         user ? <button onClick={handleLogout} className='btn'>Logout</button> : <NavLink to='/auth/login' className="btn">Login</NavLink>

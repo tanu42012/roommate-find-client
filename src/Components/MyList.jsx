@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MdEditDocument } from "react-icons/md";
 import { MdOutlineSystemUpdate } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { NavLink } from "react-router";
 import Swal from "sweetalert2";
 
 const MyList = ({roomData}) => {
@@ -101,8 +102,8 @@ const MyList = ({roomData}) => {
                                     <td>{room.description}</td>
                                     <td className='gap-12'>
                                         <button className="btn btn-sm hover:bg-blue-400 "><MdEditDocument /></button>
-                                        <button className="btn btn-sm hover:bg-orange-300"><MdOutlineSystemUpdate /></button>
-                                        <button onClick={()=>handleDelete(room._id)} className="btn btn-sm hover:bg-red-600"><MdDelete /></button>
+                                        <NavLink to={`/update/${room?._id}`} className="btn btn-sm hover:bg-orange-300"><MdOutlineSystemUpdate /></NavLink>
+                                        <button onClick={()=>handleDelete(room._id)} className="btn btn-sm hover:bg-red-600 "><MdDelete /></button>
                                     </td>
                                 </tr>
                             ))

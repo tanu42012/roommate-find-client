@@ -1,7 +1,7 @@
 import {
     createBrowserRouter,
     RouterProvider,
-  } from "react-router";
+} from "react-router";
 import HomeLayout from "./Layout/HomeLayout";
 import Home from "./Components/Home";
 import AddFindRoom from "./Components/AddFindRoom";
@@ -13,62 +13,77 @@ import Register from "./Components/Register";
 import Hero from "./Components/Hero";
 import Error from "./Components/Error";
 import Details from "./Components/Details";
-  
+import UpdateData from "./Components/UpdateData";
+import PrivateRoute from "./Provider/PrivateRoute";
+import PrivateRoute2 from "./Provider/PrivateRoute2";
+import Loading from "./Components/Loading";
+
+
 const router = createBrowserRouter([
     {
-      path: "/",
-      element:<HomeLayout></HomeLayout>,
-      children:[
-        {
-            path:"/home",
-            element:<Home></Home>,
-            loader:()=>fetch("http://localhost:3000/add-room"),
-
-        },
-        {
-            path:'/hero',
-            element:<Hero></Hero>
-
-        }
-      ]
-    },
-    {
-        path:"/add-find-roommate",
-        element:<AddFindRoom></AddFindRoom>
-    },
-    {
-        path:"/browse-listing",
-        element:<BrowseListing></BrowseListing>,
-        loader:()=>fetch("http://localhost:3000/add-room"),
-    },
-    {
-        path:"/my-listing",
-        element:<MyListing></MyListing>,
-        loader:()=>fetch("http://localhost:3000/add-room"),
-
-    },
-    {
-        path:'/details',
-        element:<Details></Details>,
-        loader:()=>fetch("http://localhost:3000/add-room"),
-    },
-    {
-        path:"/about",
-        element:<Error></Error>
-    },
-    {
-        path:'/auth',
-        element: <AuthLayout></AuthLayout>,
-        children:[
+        path: "/",
+        element: <HomeLayout></HomeLayout>,
+        children: [
             {
-                path:"/auth/login",
-                element:<Login></Login>,
+                path: "/home",
+                element: <Home></Home>,
+                loader: () => fetch("http://localhost:3000/add-room"),
+
             },
             {
-                path:"/auth/register",
-                element:<Register></Register>,
+                path: '/hero',
+                element: <Hero></Hero>
+
             }
         ]
     },
-  ]);
-  export default router;
+    {
+        path: "/add-find-roommate",
+        element: <PrivateRoute>
+            <AddFindRoom></AddFindRoom>
+        </PrivateRoute>,
+
+    },
+    {
+        path: "/browse-listing",
+        element: <BrowseListing></BrowseListing>,
+        loader: () => fetch("http://localhost:3000/add-room"),
+    },
+    {
+        path: "/my-listing",
+        element: <MyListing></MyListing>,
+        loader: () => fetch("http://localhost:3000/add-room"),
+
+    },
+    {
+        path: '/details',
+        element: <PrivateRoute2>
+            <Details></Details>
+        </PrivateRoute2>,
+        loader: () => fetch("http://localhost:3000/add-room"),
+    },
+    {
+        path: "/about",
+        element: <Error></Error>
+    },
+    {
+        path: '/auth',
+        element: <AuthLayout></AuthLayout>,
+        children: [
+            {
+                path: "/auth/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/auth/register",
+                element: <Register></Register>,
+            }
+        ]
+    },
+    {
+        path: "/update/:id",
+        element: <UpdateData></UpdateData>,
+        loader: ({ params }) => fetch(`http://localhost:3000/add-room/${params.id}`)
+    }
+]);
+export default router;
