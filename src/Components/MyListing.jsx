@@ -16,7 +16,7 @@ const MyListing = () => {
     const {loading}=use(AuthContext);
     // const[roomData,setRoomData]=useState([]);
     const roomData= useLoaderData();
-    console.log(roomData);
+    // console.log(roomData);
     if(loading){
         return <Loading></Loading>
     }

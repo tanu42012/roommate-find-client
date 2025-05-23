@@ -4,21 +4,28 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase.init';
 import { FcGoogle } from "react-icons/fc";
+
 import Swal from 'sweetalert2';
+import Loading from './Loading';
 
 
 const Login = () => {
+      const {loading}=use(AuthContext);
     const[user,setUser]=useState(null);
     const navigate=useNavigate();
 
     const{signIn}=use(AuthContext);
     const provider=new GoogleAuthProvider()
     const handleGoogleSignIn=()=>{
-        console.log('google sing click')
+        // console.log('google sing click')
         signInWithPopup(auth,provider)
         .then(result=>{
-            console.log(result.user);
-            alert("User Login successfully")
+            // console.log(result.user);
+            // alert("User Login successfully")
+            Swal.fire("User Login successfully")
+            if(loading){
+                return <Loading></Loading>
+            }
            
             setUser(result.user);
 

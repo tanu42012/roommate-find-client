@@ -9,10 +9,10 @@ const AddFindRoom = () => {
         const form = e.target;
         const formData=new FormData(form);
         const newRoomData=Object.fromEntries(formData.entries())
-        console.log( newRoomData);
+        // console.log( newRoomData);
 
 
-        fetch('http://localhost:3000/add-room',{
+        fetch('https://roommate-finder-website-server-xi.vercel.app/add-room',{
             method:'POST',
             headers:{
                 'content-type':"application/json"

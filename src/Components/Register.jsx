@@ -11,10 +11,10 @@ const Register = () => {
     const [error, setError]=useState(true);
      const provider=new GoogleAuthProvider()
         const handleGoogleSignIn=()=>{
-            console.log('google sing click')
+            // console.log('google sing click')
             signInWithPopup(auth,provider)
             .then(result=>{
-                console.log(result.user);
+                // console.log(result.user);
                 alert("User Login successfully")
                 setUser(result.user);
     

@@ -5,7 +5,7 @@ const RoomList = ({room}) => {
     const {availability,contactInfo,description,lifestylePreferences,location,rentAmount,roomType,title,_id}=room;
     const handleSeeMore=()=>{
         console.log("click see")
-        fetch(`http://localhost:3000/add-room/${room?._id}`)
+        fetch(`https://roommate-finder-website-server-xi.vercel.app/add-room/${room?._id}`)
         .then((res)=>res.json())
         .then((data)=>{
             console.log(data)

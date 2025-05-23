@@ -10,7 +10,7 @@ const DetailsRoom = () => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:3000/add-room')
+        fetch('https://roommate-finder-website-server-xi.vercel.app/add-room')
             .then(res => res.json())
             .then(data => {
                 const matchedRoom = data.find(room => room._id === id);

@@ -19,12 +19,13 @@ const UpdateData = () => {
     // console.log(title);
     const handleUpdateData=(e)=>{
         e.preventDefault();
+        console.log("update click")
 
         const updateData={
             title,location,rentAmount,roomType,lifestylePreferences,description,contactInfo,availability,
 
         }
-        fetch(`http://localhost:3000/add-room/${data?._id}`,{
+        fetch(`https://roommate-finder-website-server-xi.vercel.app/${data?._id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"

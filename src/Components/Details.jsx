@@ -6,7 +6,7 @@ import RoomDetails from './RoomDetails';
 
 const Details = () => {
     const roomData=useLoaderData();
-    console.log(roomData);
+    // console.log(roomData);
     return (
         <div>
             <section>

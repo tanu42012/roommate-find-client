@@ -1,15 +1,16 @@
 import React, { use } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { useLoaderData } from 'react-router';
+import { Outlet, useLoaderData } from 'react-router';
 import RoomList from './RoomList';
-import Loading from './Loading';
+
 import { AuthContext } from '../Provider/AuthProvider';
+import Loading from './Loading';
 
 const BrowseListing = () => {
      const {loading}=use(AuthContext);
     const roomData=useLoaderData()
-    console.log(roomData);
+    // console.log(roomData);
     if(loading){
         return <Loading></Loading>
     }
@@ -23,6 +24,9 @@ const BrowseListing = () => {
                 {
                     roomData.map(room=><RoomList room={room}></RoomList>)
                 }
+            </section>
+            <section>
+                <Outlet></Outlet>
             </section>
            
             <section className='mt-480'>

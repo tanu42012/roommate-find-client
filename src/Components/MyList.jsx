@@ -24,7 +24,7 @@ const MyList = ({roomData}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/add-room/${id}`,{
+                fetch(`https://roommate-finder-website-server-xi.vercel.app/add-room/${id}`,{
                     method:'DELETE',
                     headers:{
                         "content-type":"application?json",

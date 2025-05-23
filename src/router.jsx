@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: "/home",
                 element: <Home></Home>,
-                loader: () => fetch("http://localhost:3000/add-room"),
+                loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
 
             },
             {
@@ -51,14 +51,15 @@ const router = createBrowserRouter([
     {
         path: "/browse-listing",
         element: <BrowseListing></BrowseListing>,
-        loader: () => fetch("http://localhost:3000/add-room"),
+        loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
     },
     {
         path: "/my-listing",
+       
         element: <PrivateRoute>
             <MyListing></MyListing>
         </PrivateRoute>,
-        loader: () => fetch("http://localhost:3000/add-room"),
+        loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
 
     },
     {
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute2>
             <Details></Details>
         </PrivateRoute2>,
-        loader: () => fetch("http://localhost:3000/add-room"),
+        loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
     },
     {
         path: "/about",
@@ -89,13 +90,13 @@ const router = createBrowserRouter([
     {
         path: "/update/:id",
         element: <UpdateData></UpdateData>,
-        loader: ({ params }) => fetch(`http://localhost:3000/add-room/${params.id}`)
+        loader: ({ params }) => fetch(`https://roommate-finder-website-server-xi.vercel.app/add-room/${params.id}`)
     },
     // {
     //     path:"/single",
     //     element: <h2>hello</h2>,
-    //     // loader: () => fetch("http://localhost:3000/add-room"),
-    //     loader: ({ params }) => fetch(`http://localhost:3000/add-room/${params.id}`)
+    //     // loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/ add-room"),
+    //     loader: ({ params }) => fetch(`https://roommate-finder-website-server-xi.vercel.app/ add-room/${params.id}`)
        
 
     // },
@@ -104,7 +105,7 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
             <DetailsRoom></DetailsRoom>
         </PrivateRoute>,
-        loader: () => fetch("http://localhost:3000/add-room"),
+        loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
     }
 ]);
 export default router;
