@@ -25,7 +25,7 @@ const UpdateData = () => {
             title,location,rentAmount,roomType,lifestylePreferences,description,contactInfo,availability,
 
         }
-        fetch(`https://roommate-finder-website-server-xi.vercel.app/${data?._id}`,{
+        fetch(`https://roommate-finder-website-server-xi.vercel.app/add-room/${data?._id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"

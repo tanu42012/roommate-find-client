@@ -3,12 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Loading from './Loading';
 
 const DetailsRoom = () => {
     const { id } = useParams(); // get ID from URL
     const [roomData, setRoomData] = useState(null);
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
 
+
+    const [count, setCount] = useState(() => {
+        const stored = localStorage.getItem(`like-count-${id}`);
+        return stored ? parseInt(stored) : 0;
+    });
     useEffect(() => {
         fetch('https://roommate-finder-website-server-xi.vercel.app/add-room')
             .then(res => res.json())
@@ -17,12 +23,20 @@ const DetailsRoom = () => {
                 setRoomData(matchedRoom);
             });
     }, [id]);
+  
+
+    // const handleLike = () => {
+    //     setCount(prev => prev + 1);
+    // };
 
     const handleLike = () => {
-        setCount(prev => prev + 1);
+        const newCount = count + 1;
+        setCount(newCount);
+        localStorage.setItem(`like-count-${id}`, newCount.toString());
     };
+  
 
-    if (!roomData) return <p className="text-center mt-10">Loading or room not found...</p>;
+    if (!roomData) return <p className="text-center mt-10"><Loading></Loading></p>;
 
     const {
         availability,
@@ -54,7 +68,7 @@ const DetailsRoom = () => {
                     )}</h2>
                     <h2 className="card-title">Availability: {availability}</h2>
                     <h2 className="card-title">Description: {description}</h2>
-                    <h2 className="card-title text-blue-600">Count: {count}</h2>
+                    <h2 className="card-title text-blue-600">Count: {count}   people Interest This Person</h2>
 
                     <div className="card-actions justify-end">
                         <NavLink onClick={handleLike} to="" className="btn rounded-xl">
