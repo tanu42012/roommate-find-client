@@ -6,7 +6,7 @@ This is the responsive and dynamic **Navbar** component used in the **Roommate F
 
 ## 🌐 Live Demo
 
-🔗 **Live Site:** [Roommate Finder Web App](https://roommate-finder-web.netlify.app)
+🔗 **Live Site:** [Roommate Finder Web App](https://splendid-lolly-72780d.netlify.app/)
 
 ---
 
