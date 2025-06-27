@@ -244,6 +244,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { NavLink, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const Overview = () => {
   const { user } = useContext(AuthContext);
@@ -341,9 +342,8 @@ const Overview = () => {
       <section>
         <h2 className="text-xl font-semibold mb-2">Tips for You</h2>
         <ul className="space-y-2 text-blue-600 underline">
-          <li><a href="/blog/how-to-find-good-roommate">✅ How to Find a Trustworthy Roommate</a></li>
-          <li><a href="/blog/sharing-bills-roommates">💰 Splitting Bills Without Fights</a></li>
-          <li><a href="/blog/move-in-checklist">📦 Roommate Move-In Checklist</a></li>
+          <Link to='/'><a href="/blog/how-to-find-good-roommate">✅ How to Find a Trustworthy Roommate</a></Link>
+         
         </ul>
       </section>
     </div>
