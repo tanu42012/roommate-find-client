@@ -40,7 +40,8 @@ const router = createBrowserRouter([
         element: <HomeLayout></HomeLayout>,
         children: [
             {
-                path: "/home",
+                // path: "/home",
+                index:true,
                 element: <Home></Home>,
                 loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
 
