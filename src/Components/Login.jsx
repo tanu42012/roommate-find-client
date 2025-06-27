@@ -87,7 +87,7 @@ const Login = () => {
                             </form>
                             <p>New to This Site? Please <Link className='text-blue-600 underline' to='/auth/register'>Register</Link></p>
                         </div>
-                        <NavLink to='/home' className='btn' onClick={handleGoogleSignIn} ><FcGoogle />Sign In With Google</NavLink>
+                        <NavLink to='/' className='btn' onClick={handleGoogleSignIn} ><FcGoogle />Sign In With Google</NavLink>
                     </div>
                 </div>
         
