@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
@@ -24,23 +25,23 @@ const Footer = () => {
                 </aside>
                 <nav>
                     <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <Link to='/branding' className="link link-hover">Branding</Link>
+                    <Link to='/design' className="link link-hover">Design</Link>
+                    <Link to='/marketing' className="link link-hover">Marketing</Link>
+                    
                 </nav>
                 <nav>
                     <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <Link to='/about' className="link link-hover">About us</Link>
+                    <Link to='/contact' className="link link-hover">Contact</Link>
+                    <Link to='/job' className="link link-hover">Jobs</Link>
+                    {/* <Link to='/press' className="link link-hover">Press kit</Link> */}
                 </nav>
                 <nav>
                     <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <Link to='/terms' className="link link-hover">Terms of use</Link>
+                    <Link to='/privacy' className="link link-hover">Privacy policy</Link>
+                    
                 </nav>
             </footer>
         </div>

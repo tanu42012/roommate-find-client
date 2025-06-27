@@ -19,6 +19,19 @@ import PrivateRoute2 from "./Provider/PrivateRoute2";
 import Loading from "./Components/Loading";
 
 import DetailsRoom from "./Components/DetailsRoom";
+import DashboardLayout from "./Dashboard/DashboardLayout";
+import AllItems from "./DashboardComponent/AllItems";
+import MyItems from "./DashboardComponent/MyItems";
+import AddItem from "./DashboardComponent/AddItem";
+import Contact from "./Components/Contact";
+import Job from "./Components/Job";
+import Press from "./Components/Press";
+import Terms from "./Components/Terms";
+import Privacy from "./Components/Privacy";
+import Branding from "./Components/Branding";
+import Design from "./Components/Design";
+import Marketing from "./Components/Marketing";
+import Overview from "./Components/Overview";
 
 
 const router = createBrowserRouter([
@@ -35,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: '/hero',
                 element: <Hero></Hero>,
-               
+
 
 
             }
@@ -55,7 +68,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/my-listing",
-       
+
         element: <PrivateRoute>
             <MyListing></MyListing>
         </PrivateRoute>,
@@ -72,6 +85,78 @@ const router = createBrowserRouter([
     {
         path: "/about",
         element: <Error></Error>
+    },
+    {
+        path:'/contact',
+        Component: Contact,
+
+    },
+    {
+        path:'/job',
+        Component:Job,
+    },
+    {
+        path:'press',
+        Component:Press,
+
+    },
+    {
+        path:'/terms',
+        Component:Terms,
+    },
+    {
+        path:'/privacy',
+        Component:Privacy,
+        
+    },
+    {
+        path:'/branding',
+        Component:Branding,
+
+    },
+    {
+        path:'/design',
+        Component:Design,
+
+    },
+    {
+        path:'/marketing',
+        Component:Marketing,
+
+    },
+    
+    {
+        path: "/dashboard",
+        element: <PrivateRoute>
+            <DashboardLayout></DashboardLayout>
+        </PrivateRoute>,
+        loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
+        children: [
+
+            {
+                path: "all-items",
+                element: <AllItems />,
+                loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
+            },
+            {
+                path: "add-item",
+                element: <AddItem />
+            },
+            {
+                path: "my-items",
+                element: <MyItems />,
+                loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
+
+            },
+            {
+                path:'overview',
+                element:<Overview></Overview>,
+                loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),
+        
+            },
+
+        ],
+
     },
     {
         path: '/auth',
@@ -97,12 +182,12 @@ const router = createBrowserRouter([
     //     element: <h2>hello</h2>,
     //     // loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/ add-room"),
     //     loader: ({ params }) => fetch(`https://roommate-finder-website-server-xi.vercel.app/ add-room/${params.id}`)
-       
+
 
     // },
     {
-        path:"/detailsRoom/:id",
-        element:<PrivateRoute>
+        path: "/detailsRoom/:id",
+        element: <PrivateRoute>
             <DetailsRoom></DetailsRoom>
         </PrivateRoute>,
         loader: () => fetch("https://roommate-finder-website-server-xi.vercel.app/add-room"),

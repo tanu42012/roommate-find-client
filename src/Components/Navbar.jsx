@@ -8,9 +8,9 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FaSearch } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
-const Navbar = ({children}) => {
+const Navbar = ({ children }) => {
     const { user, logOut } = useContext(AuthContext);
-    const [dark,setDark]=useState(false);
+    const [dark, setDark] = useState(false);
 
     const handleLogout = () => {
         // console.log('user try log out');
@@ -25,8 +25,8 @@ const Navbar = ({children}) => {
     };
 
     return (
-        <div data-theme={dark? "dark":"light"}>
-            <div className="navbar bg-gray-300 shadow-sm mt-4
+        <div data-theme={dark ? "dark" : "light"}>
+            <div className="navbar bg-gray-300     shadow-sm mt-4
             ">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -38,15 +38,22 @@ const Navbar = ({children}) => {
                             </svg>
                         </div>
                         <ul tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box mx-auto z-10 mt-3 w-52 p-2 shadow">
 
 
                             <li><NavLink to='/home'>Home</NavLink></li>
                             <li><NavLink to='/add-find-roommate'>Add to Find Roommate</NavLink></li>
                             {/* <li><NavLink to='/details'>Details</NavLink></li> */}
                             <li><NavLink to='/browse-listing'>Browse Listing</NavLink></li>
-                            <li><NavLink to='/my-listing'>My Listings</NavLink></li>
-                            <li><NavLink to='/about'>About</NavLink></li>
+                            {
+                                user && <>
+                                    <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+
+                                </>
+                            }
+
+                            {/* <li><NavLink to='/my-listing'>My Listing </NavLink></li>
+                            <li><NavLink to='/about'>About</NavLink></li> */}
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl"><FaSearch /> Find Roommate</a>
@@ -58,8 +65,15 @@ const Navbar = ({children}) => {
                         <li><NavLink to='/home'>Home</NavLink></li>
                         <li><NavLink to='/add-find-roommate'>Add to Find Roommate</NavLink></li>
                         <li><NavLink to='/browse-listing'>Browse Listing</NavLink></li>
+                        {
+                            user && <>
+                                <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+
+                            </>
+                        }
+
                         <li><NavLink to='/my-listing'>My Listings</NavLink></li>
-                        <li><NavLink to='/about'>About</NavLink></li>
+                        <li><NavLink to='/about'>About Us</NavLink></li>
                     </ul>
                 </div>
 
@@ -67,7 +81,7 @@ const Navbar = ({children}) => {
                     <div>
 
 
-                    <input  type="checkbox" onClick={()=>setDark(!dark)} className="toggle theme-controller" />
+                        <input type="checkbox" onClick={() => setDark(!dark)} className="toggle theme-controller" />
                     </div>
 
                     <div className="relative group cursor-pointer">
